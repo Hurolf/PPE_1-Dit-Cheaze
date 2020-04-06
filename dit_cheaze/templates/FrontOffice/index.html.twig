@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+        <div class="parallax-container" style="position:relative; width:100%; height:500px; overflow:hidden;">
+            <h1 class="center welcome">Bienvenue sur Dit'cheaze</h1>
+            <div class="parallax">
+                <img src="{{ asset('IMG/Font1.jpeg') }}">
+            </div>
+        </div>
+        <h2 class="center">PortFolio</h2>
+        <div class="container-fluid">
+            <div class="row">
+                {% for books in books %}
+                    <div class="col-md-4 center-align">
+                        <div class="card">
+                            <div class="card-image">
+                                    <img src="{{asset('/PortFolio/' ~ books.BackImage) | imagine_filter('thumb') }}" alt="card-img-top" style="width: 100%; height: auto">
+                                <h4>{{ books.Titles }}</h4>
+                                <a href="{{ path('books.show', {id: books.id, slug: books.slug}) }}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ books.Descriptions }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

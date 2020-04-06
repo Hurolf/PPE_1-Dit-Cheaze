@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+        <h1>{{ books.Titles }}</h1>
+
+            <div class="container-fluid">
+                <div class="row">
+                    {% for images in images %}
+                        {% if books.Titles == images.alt %}
+                            <div class="col-lg-3 col-md-4 center-align thumb">
+                                <a href="{{ asset('/PortFolio/images/' ~ books.Titles) }}/{{images.url }}" data-lightbox="mygallery">
+                                    <img class="img-thumbnail img-portfolio" src="{{ asset('/PortFolio/images/' ~ books.Titles) }}/{{images.url }}" />
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+{% endblock%}

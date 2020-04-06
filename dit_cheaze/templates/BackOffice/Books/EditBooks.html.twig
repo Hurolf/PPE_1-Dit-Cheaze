@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer le theme{% endblock %}
+
+{% block body%}
+    <div class="container mt-4">
+        <h1>Editer le theme</h1>
+        {{ form_start(form) }}
+        <div class="container">
+            {{ form_row(form.Titles) }}
+            {{ form_row(form.Descriptions) }}
+            {{ form_row(form.BackImage) }}
+            {{ form_row(form.CountImages) }}
+            <button class="waves-effect btn btn-outline-secondary" id="update">Editer<i class="material-icons right">forward</i></button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

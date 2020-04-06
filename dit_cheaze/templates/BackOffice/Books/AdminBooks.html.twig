@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Gérer le books{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Gérer le books</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <table class="table table-striped highlight centered">
+            <thead>
+            <tr>
+                <th>Theme</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for books in books %}
+                <tr>
+                    <td>{{ books.Titles }}</td>
+                    <td>{{ books.Descriptions }}</td>
+                    <td>
+                        <a href="{{ path('admin.books.edit', {id: books.id, slug:books.slug}) }}" class="waves-effect btn btn-outline-secondary">Editer <i class="material-icons right">forward</i></a>
+                        <form action="{{ path('admin.books.delete', {id: books.id}) }}" style="display: inline-block;" onsubmit="return confirm('Etes-vous sur? ')">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ books.id)}}">
+                            <button class="waves-effect btn btn-danger" id="delete">Supprimer <i class="material-icons right">cancel</i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('admin.books.new') }}" class="waves-effect btn btn-primary right">Ajouter<i class="material-icons right">add</i></a>
+    </div>
+
+{% endblock %}

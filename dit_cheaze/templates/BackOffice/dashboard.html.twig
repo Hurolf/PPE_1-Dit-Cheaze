@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="center">Dashboard</h2>
+    <div class="row container-fluid center">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Thème du PortFolio</h5>
+                    <p class="card-text">Permet de creer/modifier/supprimer un theme du portfolio</p>
+                    <a href="{{ path('admin.books') }}" class="waves-effect btn btn-primary">Acceder au themes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Galerie</h5>
+                    <p class="card-text">Permet de créer une galerie</p>
+                    <a href="#" class="waves-effect btn btn-primary">Acceder à la galerie</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Devis</h5>
+                    <p class="card-text">Permet d'ajouter des devis</p>
+                    <a href="#" class="waves-effect btn btn-primary">Acceder au sevis</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
